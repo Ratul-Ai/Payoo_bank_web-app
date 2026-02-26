@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en" data-theme="caramellatte">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payoo/home</title>
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon" />
+    <!-- / fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Outfit", sans-serif;
+      }
+     
+
+      .card-item,
+      .cardAll-show {
+        display: block;
+        
+      }
+      .cardAll {
+        display: none;
+      }
+      .add{
+        color:green;
+      }
+      .minus{
+        color:red;
+      }
+    </style>
+    <!-- / daisy+tailwind -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- / icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="min-h-screen max-w-lg bg-base-300 mx-auto">
+    <header class="border-b py-4 sticky top-0 z-10 bg-base-300">
+      <section class="flex justify-between w-7/8 mx-auto items-center pt-4">
+        <div class="flex items-center gap-2">
+          <div class="logo w-[60px]">
+            <img src="./assets/logo.png" alt="logo of payoo" />
+          </div>
+          <div class="amount space-y-1">
+            <h3 class="text-2xl text-neutral font-bold">
+              $<span id="current-amount">45000</span>
+            </h3>
+            <p class="text-neutral/70">Available Balance</p>
+          </div>
+        </div>
+
+        <a href="index.html" class="btn btn-neutral btn-outline"
+          ><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a
+        >
+      </section>
+    </header>
+    <!-- / btns section -->
+    <section class="w-7/8 mx-auto pt-8 space-y-2">
+      <h3 class="text-3xl text-neutral font-bold">
+        Welcome to Pay<span class="text-violet-500">oo</span>
+      </h3>
+      <p class="text-neutral/70 text-lg">
+        Enjoy easy and convenient financial services with us. <br />
+        Cashout charge is low and Transfer money is free.
+      </p>
+      <div class="btns grid grid-cols-3 gap-4 mt-8">
+        <button
+          id="add"
+          onclick="
+            show('add-money');
+            highlight('add');
+          "
+          class="btn flex-col h-full py-4 border border-neutral btn-neutral btn-soft"
+        >
+          <img src="assets/opt-1.png" alt="logo" />
+          <p>Add Money</p>
+        </button>
+        <button
+          id="out"
+          onclick="
+            show('cash-out');
+            highlight('out');
+          "
+          class="btn flex-col h-full py-4 border border-neutral btn-neutral btn-soft"
+        >
+          <img src="assets/opt-2.png" alt="logo" />
+          <p>Cash Out</p>
+        </button>
+        <button
+          id="transfer"
+          onclick="
+            show('transfer-money');
+            highlight('transfer');
+          "
+          class="btn flex-col h-full py-4 border border-neutral btn-neutral btn-soft"
+        >
+          <img src="assets/opt-3.png" alt="logo" />
+          <p>Transfer Money</p>
+        </button>
+        <button
+          id="bonus"
+          onclick="
+            show('coupon');
+            highlight('bonus');
+          "
+          class="btn flex-col h-full py-4 border border-neutral btn-neutral btn-soft"
+        >
+          <img src="assets/opt-4.png" alt="logo" />
+          <p>Get Bonus</p>
+        </button>
+        <button
+          id="bill"
+          onclick="
+            show('pay-bill');
+            highlight('bill');
+          "
+          class="btn flex-col h-full py-4 border border-neutral btn-neutral btn-soft"
+        >
+          <img src="assets/opt-5.png" alt="logo" />
+          <p>Pay Bill</p>
+        </button>
+        <button
+          id="transaction"
+          onclick="
+            show('transaction-id');
+            highlight('transaction');
+          "
+          class="btn flex-col h-full py-4 border border-neutral btn-neutral btn-soft"
+        >
+          <img src="assets/opt-6.png" alt="logo" />
+          <p>Transactions</p>
+        </button>
+      </div>
+    </section>
+
+    <!-- / Add Money -->
+    <section id="add-money" class="addMoney w-9/10 mx-auto p-8 hidden">
+      <h3 class="text-2xl font-bold text-neutral">Add Money</h3>
+      <div>
+        <fieldset class="fieldset bg-base-100 rounded-box p-4 mt-4 mb-10">
+          <label class="label font-bold text-neutral text-lg"
+            >Select Bank</label
+          >
+          <select
+            id="bank"
+            name="bank"
+            class="input bg-base-200 rounded-full w-full relative z-0"
+            required
+          >
+            <option class="" value="Select a Bank" disabled selected hidden>
+              Select a Bank
+            </option>
+            <option value="DBBL">DBBL</option>
+            <option value="AB BANK">AB BANK</option>
+            <option value="CITY BANK">CITY BANK</option>
+            <option value="DHAKA BANK">DHAKA BANK</option>
+            <option value="ISLAMIC BANK">ISLAMIC BANK</option>
+          </select>
+
+          <label class="label font-bold text-neutral text-lg"
+            >Agent Number</label
+          >
+          <input
+            id="addMoney-number"
+            type="tel"
+            inputmode="numeric"
+            pattern="01[0-9]{9}"
+            maxlength="11"
+            minlength="11"
+            class="input only-digit bg-base-200 rounded-full w-full relative z-0"
+            placeholder="Enter your number"
+          />
+
+          <label class="label font-bold text-neutral text-lg">Amount</label>
+          <input
+            id="addMoney-amount"
+            type="text"
+            inputmode="numeric"
+            maxlength="10"
+            class="input only-digit bg-base-200 rounded-full w-full relative z-0"
+            placeholder="Enter Amount"
+          />
+
+          <label class="label font-bold text-neutral text-lg">Pin Number</label>
+          <input
+            id="addMoney-pin"
+            type="password"
+            inputmode="numeric"
+            pattern="[0-9]{4}"
+            maxlength="4"
+            minlength="4"
+            class="input only-digit bg-base-200 rounded-full w-full relative z-0"
+            placeholder="Enter 4 digit pin"
+          />
+
+          <button id="addMoney-btn" class="btn btn-neutral rounded-full mt-4">
+            Add Money
+          </button>
+        </fieldset>
+      </div>
+    </section>
+
+    <!-- / cash Out -->
+    <section id="cash-out" class="cashout w-9/10 mx-auto p-8 hidden">
+      <h3 class="text-2xl font-bold text-neutral">Cash Out</h3>
+      <div>
+        <fieldset class="fieldset bg-base-100 rounded-box p-4 mt-4 mb-10">
+          <label class="label font-bold text-neutral text-lg"
+            >Agent Number</label
+          >
+          <input
+            id="cashout-number"
+            type="tel"
+            inputmode="numeric"
+            pattern="01[0-9]{9}"
+            maxlength="11"
+            minlength="11"
+            class="input only-digit bg-base-200 rounded-full w-full relative z-0"
+            placeholder="Enter your number"
+          />
+
+          <label class="label font-bold text-neutral text-lg">Amount</label>
+          <input
+            id="cashout-amount"
+            type="text"
+            inputmode="numeric"
+            maxlength="10"
+            class="input only-digit bg-base-200 rounded-full w-full relative z-0"
+            placeholder="Enter Amount"
+          />
+
+          <label class="label font-bold text-neutral text-lg">Pin Number</label>
+          <input
+            id="cashout-pin"
+            type="password"
+            inputmode="numeric"
+            pattern="[0-9]{4}"
+            maxlength="4"
+            minlength="4"
+            class="input only-digit bg-base-200 rounded-full w-full relative z-0"
+            placeholder="Enter 4 digit pin"
+          />
+
+          <button id="cashout-btn" class="btn btn-neutral rounded-full mt-4">
+            Withdraw Money
+          </button>
+        </fieldset>
+      </div>
+    </section>
+
+    <!-- / Transfer Money -->
+    <section
+      id="transfer-money"
+      class="transferMoney w-9/10 mx-auto p-8 hidden"
+    >
+      <h3 class="text-2xl font-bold text-neutral">Transfer Money</h3>
+      <div>
+        <fieldset class="fieldset bg-base-100 rounded-box p-4 mt-4 mb-10">
+          <label class="label font-bold text-neutral text-lg"
+            >User Account Number</label
+          >
+          <input
+            id="transfer-number"
+            type="tel"
+            inputmode="numeric"
+            pattern="01[0-9]{9}"
+            maxlength="11"
+            minlength="11"
+            class="input only-digit bg-base-200 rounded-full w-full relative z-0"
+            placeholder="Enter your number"
+          />
+
+          <label class="label font-bold text-neutral text-lg">Amount</label>
+          <input
+            id="transfer-amount"
+            type="text"
+            inputmode="numeric"
+            maxlength="10"
+            class="input only-digit bg-base-200 rounded-full w-full relative z-0"
+            placeholder="Enter Amount"
+          />
+
+          <label class="label font-bold text-neutral text-lg">Pin Number</label>
+          <input
+            id="transfer-pin"
+            type="password"
+            inputmode="numeric"
+            pattern="[0-9]{4}"
+            maxlength="4"
+            minlength="4"
+            class="input only-digit bg-base-200 rounded-full w-full relative z-0"
+            placeholder="Enter 4 digit pin"
+          />
+
+          <button id="transfer-btn" class="btn btn-neutral rounded-full mt-4">
+            Transfer Money
+          </button>
+        </fieldset>
+      </div>
+    </section>
+    <!-- / coupon -->
+    <section id="coupon" class="coupon-bonus w-9/10 mx-auto p-8 hidden">
+      <h3 class="text-2xl font-bold text-neutral">Get Bonus</h3>
+      <div>
+        <fieldset class="fieldset bg-base-100 rounded-box p-4 mt-4 mb-10">
+          <label class="label font-bold text-neutral text-lg"
+            >Enter Bonus Coupon</label
+          >
+          <input
+            id="coupon-id"
+            type="text"
+            maxlength="6"
+            class="input bg-base-200 rounded-full w-full relative z-0"
+            placeholder="Enter Your Coupon"
+          />
+
+          <button id="coupon-btn" class="btn btn-neutral rounded-full mt-4">
+            Get Bonus
+          </button>
+        </fieldset>
+      </div>
+    </section>
+
+    <!-- / pay-bill -->
+    <section id="pay-bill" class="payBill w-9/10 mx-auto p-8 hidden">
+      <h3 class="text-2xl font-bold text-neutral">Pay Bill</h3>
+      <div>
+        <fieldset class="fieldset bg-base-100 rounded-box p-4 mt-4 mb-10">
+          <label class="label font-bold text-neutral text-lg"
+            >Select To Pay</label
+          >
+          <select
+            id="pay-bank"
+            name="bank"
+            class="input bg-base-200 rounded-full w-full relative z-0"
+            required
+          >
+            <option class="" value="Select a Bank" disabled selected hidden>
+              Select a Bank
+            </option>
+            <option value="DBBL">DBBL</option>
+            <option value="AB BANK">AB BANK</option>
+            <option value="CITY BANK">CITY BANK</option>
+            <option value="DHAKA BANK">DHAKA BANK</option>
+            <option value="ISLAMIC BANK">ISLAMIC BANK</option>
+          </select>
+
+          <label class="label font-bold text-neutral text-lg"
+            >Biller Account Number</label
+          >
+          <input
+            id="pay-number"
+            type="tel"
+            inputmode="numeric"
+            pattern="01[0-9]{9}"
+            maxlength="11"
+            minlength="11"
+            class="input only-digit bg-base-200 rounded-full w-full relative z-0"
+            placeholder="Enter your number"
+          />
+
+          <label class="label font-bold text-neutral text-lg">Amount</label>
+          <input
+            id="pay-amount"
+            type="text"
+            inputmode="numeric"
+            maxlength="10"
+            class="input only-digit bg-base-200 rounded-full w-full relative z-0"
+            placeholder="Enter Amount"
+          />
+
+          <label class="label font-bold text-neutral text-lg">Pin Number</label>
+          <input
+            id="pay-pin"
+            type="password"
+            inputmode="numeric"
+            pattern="[0-9]{4}"
+            maxlength="4"
+            minlength="4"
+            class="input only-digit bg-base-200 rounded-full w-full relative z-0"
+            placeholder="Enter 4 digit pin"
+          />
+
+          <button id="pay-btn" class="btn btn-neutral rounded-full mt-4">
+            Pay Bill
+          </button>
+        </fieldset>
+      </div>
+    </section>
+
+    <!-- / Transitions -->
+    <section id="transaction-id" class="transitions mx-auto p-8 hidden">
+      <div class="flex justify-between items-center">
+        <h3 class="text-2xl font-bold text-neutral">Transaction History</h3>
+        <button
+          onclick="toggle()"
+          id="view-btn"
+          class="text-neutral/70 hover:text-neutral hover:underline invisible"
+        >
+          View All
+        </button>
+      </div>
+
+      <div id="transaction-list">
+        <div class="bg-base-100 p-4 my-4 rounded-lg">
+          <p class="text-neutral/70 text-center p-4">No Transaction Yet</p>
+        </div>
+      </div>
+    </section>
+
+    <script src="script/transaction.js"></script>
+    <script src="script/commonFunction.js"></script>
+    <script src="script/cashout.js"></script>
+    <script src="script/addMoney.js"></script>
+    <script src="script/transferMoney.js"></script>
+    <script src="script/coupon.js"></script>
+    <script src="script/PayBill.js"></script>
+  </body>
+</html>

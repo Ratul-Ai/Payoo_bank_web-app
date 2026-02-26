@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" data-theme="caramellatte">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payoo/log in</title>
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon" />
+    <!-- / fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Outfit", sans-serif;
+      }
+    </style>
+    <!-- / daisy+tailwind -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- / icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="min-h-screen max-w-lg bg-base-300 mx-auto">
+    <div class="logo w-[250px] mx-auto pt-32">
+      <img src="./assets/Logo-full.png" alt="logo of payoo " />
+    </div>
+    <section class="login">
+      <fieldset class="fieldset bg-base-100 rounded-box w-xs p-4 mt-10 mx-auto" >
+
+        <label class="label font-bold text-neutral text-lg">Mobile Number</label>
+        <input id="input-number" type="tel" value="01111111111" inputmode="numeric" pattern="01[0-9]{9}" maxlength="11"  minlength="11"  class="input bg-base-200 rounded-full" placeholder="Enter your number" />
+
+        <label class="label font-bold text-neutral text-lg">4 digit pin</label>
+        <input id="input-pin" type="password" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" minlength="4" class="input bg-base-200 rounded-full" placeholder="Enter 4 digit pin" />
+
+        <button id="input-btn" class="btn btn-neutral rounded-full mt-4">Login</button>
+      </fieldset>
+    </section>
+    <script src="./script/login.js"></script>
+  </body>
+</html>

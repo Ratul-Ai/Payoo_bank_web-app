@@ -1,44 +1,71 @@
-const accNo="11111111111";
-const pin='2222';
+const accNo = "11111111111";
+const pin = "2222";
 
-document.querySelectorAll('.only-digit').forEach(input => {
-    input.addEventListener("input", function () {
-  this.value = this.value.replace(/\D/g, "");
+// Fill logged-in user's number in the hamburger menu
+document.getElementById("menu-user-number").textContent =
+  sessionStorage.getItem("userNumber") || "Unknown";
+
+document.querySelectorAll(".only-digit").forEach((input) => {
+  input.addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, "");
+  });
 });
-});
 
-
-function getInputValue(id){
-    return document.getElementById(id).value;
+// Get value of an input by ID
+function getInputValue(id) {
+  return document.getElementById(id).value;
 }
 
-function getBalance(){
-   return Number( document.getElementById("current-amount").innerText);
-}
-function setBalance(value){
-    document.getElementById("current-amount").innerText=value;
+// Get current balance from DOM
+function getBalance() {
+  return Number(document.getElementById("current-amount").innerText);
 }
 
-function show(id){
-    document.getElementById('add-money').classList.add('hidden');
-    document.getElementById('cash-out').classList.add('hidden');
-    document.getElementById('transfer-money').classList.add('hidden');
-    document.getElementById('coupon').classList.add('hidden');
-    document.getElementById('pay-bill').classList.add('hidden');
-    document.getElementById('transaction-id').classList.add('hidden');
-    
-    document.getElementById(id).classList.remove('hidden');
+// Update balance in DOM
+function setBalance(value) {
+  document.getElementById("current-amount").innerText = value;
 }
 
-function highlight(id){
-    
-    document.getElementById('add').classList.add('btn-soft');
-    document.getElementById('out').classList.add('btn-soft');
-    document.getElementById('transfer').classList.add('btn-soft');
-    document.getElementById('bonus').classList.add('btn-soft');
-    document.getElementById('bill').classList.add('btn-soft');
-    document.getElementById('transaction').classList.add('btn-soft');
-    document.getElementById(id).classList.remove('btn-soft');
-
+// Show one section, hide all others
+function show(id) {
+  document.querySelectorAll(".display")
+    .forEach((e) => e.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+   if (id === "transaction-id") {
+    document.getElementById("transaction-title").textContent = "Transaction History";
+  }
 }
 
+// Highlight the active service button, reset all others
+function highlight(id) {
+  document.querySelectorAll(".active-btn")
+    .forEach((btn) => btn.classList.add("btn-soft"));
+  document.getElementById(id).classList.remove("btn-soft");
+}
+
+//  hide all service sections, show transaction history, reset button highlights
+function goHome() {
+  ["add-money", "cash-out", "transfer-money", "coupon", "pay-bill"]
+    .forEach((sectionId) => document.getElementById(sectionId).classList.add("hidden"));
+  document.getElementById("transaction-id").classList.remove("hidden");
+  document.getElementById("transaction-title").textContent = "Latest Payment"; 
+  ["add", "out", "transfer", "bonus", "bill", "transaction"]
+    .forEach((btnId) => document.getElementById(btnId).classList.add("btn-soft"));
+}
+
+// Show inline error
+function showError(id, message) {
+  const el = document.getElementById(id + "-error");
+  el.textContent = message;
+  el.classList.remove("hidden");
+}
+
+// Hide inline error 
+function hideError(id) {
+  document.getElementById(id + "-error").classList.add("hidden");
+}
+
+// Hide multiple error 
+function hideAllErrors(ids) {
+  ids.forEach((id) => hideError(id));
+}

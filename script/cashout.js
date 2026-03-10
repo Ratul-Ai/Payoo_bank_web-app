@@ -1,27 +1,30 @@
 document.getElementById("cashout-btn").addEventListener("click", function () {
-
   const cashoutNumber = getInputValue("cashout-number");
   const cashoutPin = getInputValue("cashout-pin");
   const cashoutAmount = getInputValue("cashout-amount");
-  
+
+
+  hideAllErrors(["cashout-number", "cashout-amount", "cashout-pin"]);
+
   if (cashoutNumber !== accNo) {
-    alert("Invalid Agent Number");
+    showError("cashout-number", "Invalid agent number.");
+    return;
+  }
+  if (!cashoutAmount || Number(cashoutAmount) <= 0) {
+    showError("cashout-amount", "Please enter a valid amount.");
+    return;
+  }
+  if (getBalance() - Number(cashoutAmount) < 0) {
+    showError("cashout-amount", "Insufficient balance.");
+    return;
+  }
+  if (cashoutPin !== pin) {
+    showError("cashout-pin", "Incorrect pin.");
     return;
   }
 
   const newAmount = getBalance() - Number(cashoutAmount);
-
-  if (newAmount < 0) {
-    alert("Invalid Amount");
-    return;
-  }
-  if (cashoutPin === pin) {
-    setBalance(newAmount);
-    addTransaction("", "Cash Out", cashoutAmount);
-
-    alert(`Amount ${cashoutAmount} Withdraw successful.New balance ${newAmount}`);
-  } else {
-    alert("Invalid Pin");
-    return;
-  }
+  setBalance(newAmount);
+  addTransaction("", "Cash Out", cashoutAmount);
+  alert(`$${cashoutAmount} withdrawn successfully. New balance: $${newAmount}`);
 });

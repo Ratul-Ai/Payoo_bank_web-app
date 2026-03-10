@@ -1,26 +1,30 @@
 document.getElementById("addMoney-btn").addEventListener("click", () => {
-
   const addMoneyNumber = getInputValue("addMoney-number");
   const addMoneyPin = getInputValue("addMoney-pin");
   const addMoneyAmount = getInputValue("addMoney-amount");
 
+  
+  hideAllErrors(["bank", "addMoney-number", "addMoney-amount", "addMoney-pin"]);
+
   if (getInputValue("bank") === "Select a Bank") {
-    alert("Please select a bank");
+    showError("bank", "Please select a bank.");
     return;
   }
-  if (addMoneyNumber !== accNo || addMoneyPin !== pin) {
-    alert("Invalid Account Number or Pin");
+  if (addMoneyNumber !== accNo) {
+    showError("addMoney-number", "Invalid account number.");
     return;
   }
-  if (addMoneyAmount <= 0) {
-    alert("Invalid amount");
+  if (!addMoneyAmount || Number(addMoneyAmount) <= 0) {
+    showError("addMoney-amount", "Please enter a valid amount.");
     return;
   }
+  if (addMoneyPin !== pin) {
+    showError("addMoney-pin", "Incorrect pin.");
+    return;
+  }
+
   const newBalance = getBalance() + Number(addMoneyAmount);
   setBalance(newBalance);
-  console.log('hello');
   addTransaction("add", "Add Money · " + getInputValue("bank"), addMoneyAmount);
-  console.log('hello2');
-
-  alert(addMoneyAmount + " added in your account. New balance: " + newBalance);
+  alert(`$${addMoneyAmount} added successfully. New balance: $${newBalance}`);
 });

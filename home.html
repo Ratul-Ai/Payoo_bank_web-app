@@ -16,21 +16,19 @@
       * {
         font-family: "Outfit", sans-serif;
       }
-     
 
       .card-item,
       .cardAll-show {
         display: block;
-        
       }
       .cardAll {
         display: none;
       }
-      .add{
-        color:green;
+      .add {
+        color: green;
       }
-      .minus{
-        color:red;
+      .minus {
+        color: red;
       }
     </style>
     <!-- / daisy+tailwind -->
@@ -70,42 +68,57 @@
           </div>
         </div>
 
+        <div class="dropdown dropdown-end">
+          <button
+            id="burger-btn"
+            tabindex="0"
+            class="btn border border-neutral btn-neutral btn-soft"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <ul
+            tabindex="0"
+            class="dropdown-content menu bg-base-100 rounded-box z-50 w-40 p-2 shadow-lg mt-2"
+          >
+            <!--/ User info -->
+            <li class="pointer-events-none">
+              <div class="flex items-center gap-3 px-2 py-3">
+                <div
+                  class="bg-neutral text-neutral-content rounded-full w-9 h-9 flex items-center justify-center"
+                >
+                  <i class="fa-solid fa-user text-sm"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-neutral">User</p>
+                  <p
+                    id="menu-user-number"
+                    class="text-sm font-semibold text-neutral"
+                  >
+                    —
+                  </p>
+                </div>
+              </div>
+            </li>
 
-<div class="dropdown dropdown-end">
-  <button id="burger-btn" tabindex="0" class="btn border border-neutral btn-neutral btn-soft">
-    <i class="fa-solid fa-bars"></i>
-  </button>
-  <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-50 w-40 p-2 shadow-lg mt-2">
+            <!-- Home button -->
+            <li>
+              <a onclick="goHome()" class="cursor-pointer">
+                <i class="fa-solid fa-house"></i> Home
+              </a>
+            </li>
 
-    <!--/ User info -->
-    <li class="pointer-events-none">
-      <div class="flex items-center gap-3 px-2 py-3">
-        <div class="bg-neutral text-neutral-content rounded-full w-9 h-9 flex items-center justify-center">
-          <i class="fa-solid fa-user text-sm"></i>
+            <!-- Logout -->
+            <li>
+              <a
+                href="index.html"
+                onclick="sessionStorage.clear()"
+                class="text-red-500"
+              >
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+              </a>
+            </li>
+          </ul>
         </div>
-        <div>
-          <p class="text-xs text-neutral">User</p>
-          <p id="menu-user-number" class="text-sm font-semibold text-neutral">—</p>
-        </div>
-      </div>
-    </li>
-
-    <!-- Home button -->
-    <li>
-      <a onclick="goHome()" class="cursor-pointer">
-        <i class="fa-solid fa-house"></i> Home
-      </a>
-    </li>
-
-    <!-- Logout -->
-    <li>
-      <a href="index.html" onclick="sessionStorage.clear()" class="text-red-500">
-        <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
-      </a>
-    </li>
-
-  </ul>
-</div>
       </section>
     </header>
     <!-- / btns section -->
@@ -225,7 +238,10 @@
             class="input only-digit bg-base-200 rounded-full w-full relative z-0"
             placeholder="Enter your number"
           />
-          <p id="addMoney-number-error" class="hidden text-red-500 text-sm mt-1 pl-2"></p>
+          <p
+            id="addMoney-number-error"
+            class="hidden text-red-500 text-sm mt-1 pl-2"
+          ></p>
 
           <label class="label font-bold text-neutral text-lg">Amount</label>
           <input
@@ -236,7 +252,10 @@
             class="input only-digit bg-base-200 rounded-full w-full relative z-0"
             placeholder="Enter Amount"
           />
-          <p id="addMoney-amount-error" class="hidden text-red-500 text-sm mt-1 pl-2"></p>
+          <p
+            id="addMoney-amount-error"
+            class="hidden text-red-500 text-sm mt-1 pl-2"
+          ></p>
 
           <label class="label font-bold text-neutral text-lg">Pin Number</label>
           <input
@@ -249,11 +268,31 @@
             class="input only-digit bg-base-200 rounded-full w-full relative z-0"
             placeholder="Enter 4 digit pin"
           />
-          <p id="addMoney-pin-error" class="hidden text-red-500 text-sm mt-1 pl-2"></p>
+          <p
+            id="addMoney-pin-error"
+            class="hidden text-red-500 text-sm mt-1 pl-2"
+          ></p>
 
           <button id="addMoney-btn" class="btn btn-neutral rounded-full mt-4">
             Add Money
           </button>
+          <!--/ demo-credential -->
+          <div class="demo-credential">
+            <hr class="border border-base-400 my-3" />
+          <div class="flex flex-col items-center gap-3">
+            <p class="text-base-content/70 text-sm">Demo Credentials:</p>
+              <div class="bg-base-200 rounded-lg py-5 w-full">
+                <div class="w-fit text-lg mx-auto">
+                  <p class="font-bold">
+                    Agent Number: <span class="font-normal">11111111111</span>
+                  </p>
+                  <p class="font-bold">
+                    Pin: <span class="font-normal">2222</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </fieldset>
       </div>
     </section>
@@ -276,7 +315,10 @@
             class="input only-digit bg-base-200 rounded-full w-full relative z-0"
             placeholder="Enter your number"
           />
-          <p id="cashout-number-error" class="hidden text-red-500 text-sm mt-1 pl-2"></p>
+          <p
+            id="cashout-number-error"
+            class="hidden text-red-500 text-sm mt-1 pl-2"
+          ></p>
 
           <label class="label font-bold text-neutral text-lg">Amount</label>
           <input
@@ -287,9 +329,11 @@
             class="input only-digit bg-base-200 rounded-full w-full relative z-0"
             placeholder="Enter Amount"
           />
-       
-          <p id="cashout-amount-error" class="hidden text-red-500 text-sm mt-1 pl-2"></p>
 
+          <p
+            id="cashout-amount-error"
+            class="hidden text-red-500 text-sm mt-1 pl-2"
+          ></p>
 
           <label class="label font-bold text-neutral text-lg">Pin Number</label>
           <input
@@ -302,12 +346,32 @@
             class="input only-digit bg-base-200 rounded-full w-full relative z-0"
             placeholder="Enter 4 digit pin"
           />
-        
-          <p id="cashout-pin-error" class="hidden text-red-500 text-sm mt-1 pl-2"></p>
+
+          <p
+            id="cashout-pin-error"
+            class="hidden text-red-500 text-sm mt-1 pl-2"
+          ></p>
 
           <button id="cashout-btn" class="btn btn-neutral rounded-full mt-4">
             Withdraw Money
           </button>
+          <!--/ demo-credential -->
+          <div class="demo-credential">
+            <hr class="border border-base-400 my-3" />
+          <div class="flex flex-col items-center gap-3">
+            <p class="text-base-content/70 text-sm">Demo Credentials:</p>
+              <div class="bg-base-200 rounded-lg py-5 w-full">
+                <div class="w-fit text-lg mx-auto">
+                  <p class="font-bold">
+                    Agent Number: <span class="font-normal">11111111111</span>
+                  </p>
+                  <p class="font-bold">
+                    Pin: <span class="font-normal">2222</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </fieldset>
       </div>
     </section>
@@ -333,8 +397,10 @@
             class="input only-digit bg-base-200 rounded-full w-full relative z-0"
             placeholder="Enter your number"
           />
-          <p id="transfer-number-error" class="hidden text-red-500 text-sm mt-1 pl-2"></p>
-
+          <p
+            id="transfer-number-error"
+            class="hidden text-red-500 text-sm mt-1 pl-2"
+          ></p>
 
           <label class="label font-bold text-neutral text-lg">Amount</label>
           <input
@@ -345,9 +411,11 @@
             class="input only-digit bg-base-200 rounded-full w-full relative z-0"
             placeholder="Enter Amount"
           />
-      
-          <p id="transfer-amount-error" class="hidden text-red-500 text-sm mt-1 pl-2"></p>
 
+          <p
+            id="transfer-amount-error"
+            class="hidden text-red-500 text-sm mt-1 pl-2"
+          ></p>
 
           <label class="label font-bold text-neutral text-lg">Pin Number</label>
           <input
@@ -360,12 +428,33 @@
             class="input only-digit bg-base-200 rounded-full w-full relative z-0"
             placeholder="Enter 4 digit pin"
           />
-         
-          <p id="transfer-pin-error" class="hidden text-red-500 text-sm mt-1 pl-2"></p>
+
+          <p
+            id="transfer-pin-error"
+            class="hidden text-red-500 text-sm mt-1 pl-2"
+          ></p>
 
           <button id="transfer-btn" class="btn btn-neutral rounded-full mt-4">
             Transfer Money
           </button>
+          <!--/ demo-credential -->
+          <div class="demo-credential">
+            <hr class="border border-base-400 my-3" />
+          <div class="flex flex-col items-center gap-3">
+            <p class="text-base-content/70 text-sm">Demo Credentials:</p>
+              <div class="bg-base-200 rounded-lg py-5 w-full">
+                <div class="w-fit text-lg mx-auto">
+                  <p class="font-bold">
+                    User Account Number:
+                    <span class="font-normal">11111111111</span>
+                  </p>
+                  <p class="font-bold">
+                    Pin: <span class="font-normal">2222</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </fieldset>
       </div>
     </section>
@@ -384,11 +473,28 @@
             class="input bg-base-200 rounded-full w-full relative z-0"
             placeholder="Enter Your Coupon"
           />
-          <p id="coupon-id-error" class="hidden text-red-500 text-sm mt-1 pl-2"></p>
+          <p
+            id="coupon-id-error"
+            class="hidden text-red-500 text-sm mt-1 pl-2"
+          ></p>
 
           <button id="coupon-btn" class="btn btn-neutral rounded-full mt-4">
             Get Bonus
           </button>
+          <!--/ demo-credential -->
+          <div class="demo-credential">
+            <hr class="border border-base-400 my-3" />
+          <div class="flex flex-col items-center gap-3">
+            <p class="text-base-content/70 text-sm">Demo Credentials:</p>
+              <div class="bg-base-200 rounded-lg py-5 w-full">
+                <div class="w-fit mx-auto">
+                  <p class="font-bold text-lg">
+                    Coupon: <span class="font-normal">s-1000</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </fieldset>
       </div>
     </section>
@@ -416,8 +522,10 @@
             <option value="DHAKA BANK">DHAKA BANK</option>
             <option value="ISLAMIC BANK">ISLAMIC BANK</option>
           </select>
-          <p id="pay-bank-error" class="hidden text-red-500 text-sm mt-1 pl-2"></p>
-
+          <p
+            id="pay-bank-error"
+            class="hidden text-red-500 text-sm mt-1 pl-2"
+          ></p>
 
           <label class="label font-bold text-neutral text-lg"
             >Biller Account Number</label
@@ -432,8 +540,11 @@
             class="input only-digit bg-base-200 rounded-full w-full relative z-0"
             placeholder="Enter your number"
           />
-         
-<p id="pay-number-error" class="hidden text-red-500 text-sm mt-1 pl-2"></p>
+
+          <p
+            id="pay-number-error"
+            class="hidden text-red-500 text-sm mt-1 pl-2"
+          ></p>
 
           <label class="label font-bold text-neutral text-lg">Amount</label>
           <input
@@ -444,9 +555,11 @@
             class="input only-digit bg-base-200 rounded-full w-full relative z-0"
             placeholder="Enter Amount"
           />
-          
-<p id="pay-amount-error" class="hidden text-red-500 text-sm mt-1 pl-2"></p>
 
+          <p
+            id="pay-amount-error"
+            class="hidden text-red-500 text-sm mt-1 pl-2"
+          ></p>
 
           <label class="label font-bold text-neutral text-lg">Pin Number</label>
           <input
@@ -459,11 +572,32 @@
             class="input only-digit bg-base-200 rounded-full w-full relative z-0"
             placeholder="Enter 4 digit pin"
           />
-          <p id="pay-pin-error" class="hidden text-red-500 text-sm mt-1 pl-2"></p>
+          <p
+            id="pay-pin-error"
+            class="hidden text-red-500 text-sm mt-1 pl-2"
+          ></p>
 
           <button id="pay-btn" class="btn btn-neutral rounded-full mt-4">
             Pay Bill
           </button>
+          <!--/ demo-credential -->
+         <div class="demo-credential">
+            <hr class="border border-base-400 my-3" />
+          <div class="flex flex-col items-center gap-3">
+            <p class="text-base-content/70 text-sm">Demo Credentials:</p>
+              <div class="bg-base-200 rounded-lg py-5 w-full">
+                <div class="w-fit text-lg mx-auto">
+                  <p class="font-bold">
+                    Biller Account Number:
+                    <span class="font-normal">11111111111</span>
+                  </p>
+                  <p class="font-bold">
+                    Pin: <span class="font-normal">2222</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </fieldset>
       </div>
     </section>
@@ -471,7 +605,9 @@
     <!-- / Transitions -->
     <section id="transaction-id" class="display transitions mx-auto p-8 hidden">
       <div class="flex justify-between items-center">
-        <h3 id="transaction-title" class="text-2xl font-bold text-neutral">Latest Payment</h3>
+        <h3 id="transaction-title" class="text-2xl font-bold text-neutral">
+          Latest Payment
+        </h3>
         <button
           onclick="toggle()"
           id="view-btn"

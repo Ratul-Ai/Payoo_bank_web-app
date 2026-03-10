@@ -43,41 +43,61 @@
       <img src="./assets/Logo-full.png" alt="logo of payoo " />
     </div>
     <section class="login">
-      <fieldset class="fieldset bg-base-100 rounded-box w-xs p-4 mt-10 mx-auto" >
+      <fieldset class="fieldset bg-base-100 rounded-box w-xs p-4 mt-10 mx-auto">
         <!--/ number  -->
-        <label class="label font-bold text-neutral text-lg">Mobile Number</label>
-        <input id="input-number" type="tel" inputmode="numeric" pattern="01[0-9]{9}" maxlength="11"  minlength="11"  class="input bg-base-200 rounded-full" placeholder="Enter your number" />
-        
+        <label class="label font-bold text-neutral text-lg"
+          >Mobile Number</label
+        >
+        <input
+          id="input-number"
+          type="tel"
+          inputmode="numeric"
+          pattern="01[0-9]{9}"
+          maxlength="11"
+          minlength="11"
+          class="input bg-base-200 rounded-full"
+          placeholder="Enter your number"
+        />
+
         <!--/ pin  -->
         <label class="label font-bold text-neutral text-lg">4 digit pin</label>
-        <input id="input-pin" type="password" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" minlength="4" class="input bg-base-200 rounded-full" placeholder="Enter 4 digit pin" />
+        <input
+          id="input-pin"
+          type="password"
+          inputmode="numeric"
+          pattern="[0-9]{4}"
+          maxlength="4"
+          minlength="4"
+          class="input bg-base-200 rounded-full"
+          placeholder="Enter 4 digit pin"
+        />
         <!--/ error msg  -->
-        <p id="login-error" class="hidden text-red-500 text-sm mt-1 pl-2">Invalid Mobile Number or Pin</p>
+        <p id="login-error" class="hidden text-red-500 text-sm mt-1 pl-2">
+          Invalid Mobile Number or Pin
+        </p>
 
-        <button id="input-btn" class="btn btn-neutral rounded-full mt-4">Login</button>
+        <button id="input-btn" class="btn btn-neutral rounded-full mt-4">
+          Login
+        </button>
 
-         <!--/ line break -->
-        <div class="flex items-center mt-3 gap-4 text-base-content/40 text-sm">
-          <hr class="flex-1 border-base-300" />
-          <span>OR</span>
-          <hr class="flex-1 border-base-300" />
-        </div>
-        <!--/ footer  -->
-        <div class="flex flex-col items-center gap-3">
-          <p class="text-base-content/40 text-sm">Demo Credentials:</p>
-          <div class="bg-base-200 rounded-lg py-5 w-full">
-            <div class="w-fit mx-auto">
-              <p class="font-bold">
-                Mobile Number: <span class="font-normal">01111111111</span>
-              </p>
-              <p class="font-bold">
-                Pin: <span class="font-normal">2222</span>
-              </p>
+        <!--/ demo-credential -->
+        <div class="demo-credential">
+            <hr class="border border-base-400 my-3" />
+          <div class="flex flex-col items-center gap-3">
+            <p class="text-base-content/70 text-sm">Demo Credentials:</p>
+            <div class="bg-base-200 rounded-lg py-5 w-full">
+              <div class="w-fit text-lg mx-auto">
+                <p class="font-bold">
+                  Mobile Number: <span class="font-normal">01111111111</span>
+                </p>
+                <p class="font-bold">
+                  Pin: <span class="font-normal">2222</span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </fieldset>
-      
     </section>
     <script src="./script/login.js"></script>
   </body>

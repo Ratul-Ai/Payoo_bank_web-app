@@ -62,7 +62,7 @@
           </div>
           <div class="amount space-y-1">
             <h3 class="text-2xl text-neutral font-bold">
-              $<span id="current-amount">45000</span>
+              $<span id="current-amount">0.00</span>
             </h3>
             <p class="text-neutral/70">Available Balance</p>
           </div>
@@ -109,11 +109,7 @@
 
             <!-- Logout -->
             <li>
-              <a
-                href="index.html"
-                onclick="sessionStorage.clear()"
-                class="text-red-500"
-              >
+              <a onclick="logout()" class="text-red-500">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
               </a>
             </li>
@@ -243,13 +239,15 @@
             class="hidden text-red-500 text-sm mt-1 pl-2"
           ></p>
 
-          <label class="label font-bold text-neutral text-lg">Amount</label>
+          <label class="label font-bold text-neutral text-lg"
+            >Amount</label
+          >
           <input
             id="addMoney-amount"
             type="text"
             inputmode="numeric"
             maxlength="10"
-            class="input only-digit bg-base-200 rounded-full w-full relative z-0"
+            class="input amount-digit bg-base-200 rounded-full w-full relative z-0"
             placeholder="Enter Amount"
           />
           <p
@@ -279,8 +277,8 @@
           <!--/ demo-credential -->
           <div class="demo-credential">
             <hr class="border border-base-400 my-3" />
-          <div class="flex flex-col items-center gap-3">
-            <p class="text-base-content/70 text-sm">Demo Credentials:</p>
+            <div class="flex flex-col items-center gap-3">
+              <p class="text-base-content/70 text-sm">Demo Credentials:</p>
               <div class="bg-base-200 rounded-lg py-5 w-full">
                 <div class="w-fit text-lg mx-auto">
                   <p class="font-bold">
@@ -320,13 +318,15 @@
             class="hidden text-red-500 text-sm mt-1 pl-2"
           ></p>
 
-          <label class="label font-bold text-neutral text-lg">Amount</label>
+          <label class="label font-bold text-neutral text-lg"
+            >Amount</label
+          >
           <input
             id="cashout-amount"
             type="text"
             inputmode="numeric"
             maxlength="10"
-            class="input only-digit bg-base-200 rounded-full w-full relative z-0"
+            class="input amount-digit bg-base-200 rounded-full w-full relative z-0"
             placeholder="Enter Amount"
           />
 
@@ -358,8 +358,8 @@
           <!--/ demo-credential -->
           <div class="demo-credential">
             <hr class="border border-base-400 my-3" />
-          <div class="flex flex-col items-center gap-3">
-            <p class="text-base-content/70 text-sm">Demo Credentials:</p>
+            <div class="flex flex-col items-center gap-3">
+              <p class="text-base-content/70 text-sm">Demo Credentials:</p>
               <div class="bg-base-200 rounded-lg py-5 w-full">
                 <div class="w-fit text-lg mx-auto">
                   <p class="font-bold">
@@ -402,13 +402,15 @@
             class="hidden text-red-500 text-sm mt-1 pl-2"
           ></p>
 
-          <label class="label font-bold text-neutral text-lg">Amount</label>
+          <label class="label font-bold text-neutral text-lg"
+            >Amount</label
+          >
           <input
             id="transfer-amount"
             type="text"
             inputmode="numeric"
             maxlength="10"
-            class="input only-digit bg-base-200 rounded-full w-full relative z-0"
+            class="input amount-digit bg-base-200 rounded-full w-full relative z-0"
             placeholder="Enter Amount"
           />
 
@@ -440,8 +442,8 @@
           <!--/ demo-credential -->
           <div class="demo-credential">
             <hr class="border border-base-400 my-3" />
-          <div class="flex flex-col items-center gap-3">
-            <p class="text-base-content/70 text-sm">Demo Credentials:</p>
+            <div class="flex flex-col items-center gap-3">
+              <p class="text-base-content/70 text-sm">Demo Credentials:</p>
               <div class="bg-base-200 rounded-lg py-5 w-full">
                 <div class="w-fit text-lg mx-auto">
                   <p class="font-bold">
@@ -484,8 +486,8 @@
           <!--/ demo-credential -->
           <div class="demo-credential">
             <hr class="border border-base-400 my-3" />
-          <div class="flex flex-col items-center gap-3">
-            <p class="text-base-content/70 text-sm">Demo Credentials:</p>
+            <div class="flex flex-col items-center gap-3">
+              <p class="text-base-content/70 text-sm">Demo Credentials:</p>
               <div class="bg-base-200 rounded-lg py-5 w-full">
                 <div class="w-fit mx-auto">
                   <p class="font-bold text-lg">
@@ -546,13 +548,15 @@
             class="hidden text-red-500 text-sm mt-1 pl-2"
           ></p>
 
-          <label class="label font-bold text-neutral text-lg">Amount</label>
+          <label class="label font-bold text-neutral text-lg"
+            >Amount</label
+          >
           <input
             id="pay-amount"
             type="text"
             inputmode="numeric"
             maxlength="10"
-            class="input only-digit bg-base-200 rounded-full w-full relative z-0"
+            class="input amount-digit bg-base-200 rounded-full w-full relative z-0"
             placeholder="Enter Amount"
           />
 
@@ -581,10 +585,10 @@
             Pay Bill
           </button>
           <!--/ demo-credential -->
-         <div class="demo-credential">
+          <div class="demo-credential">
             <hr class="border border-base-400 my-3" />
-          <div class="flex flex-col items-center gap-3">
-            <p class="text-base-content/70 text-sm">Demo Credentials:</p>
+            <div class="flex flex-col items-center gap-3">
+              <p class="text-base-content/70 text-sm">Demo Credentials:</p>
               <div class="bg-base-200 rounded-lg py-5 w-full">
                 <div class="w-fit text-lg mx-auto">
                   <p class="font-bold">
@@ -603,7 +607,7 @@
     </section>
 
     <!-- / Transitions -->
-    <section id="transaction-id" class="display transitions mx-auto p-8 hidden">
+    <section id="transaction-id" class="display transitions mx-auto p-8">
       <div class="flex justify-between items-center">
         <h3 id="transaction-title" class="text-2xl font-bold text-neutral">
           Latest Payment

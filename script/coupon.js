@@ -3,7 +3,6 @@ let use = true;
 document.getElementById("coupon-btn").addEventListener("click", () => {
   const couponValue = getInputValue("coupon-id");
 
-  
   hideAllErrors(["coupon-id"]);
 
   if (!couponValue.trim()) {
@@ -22,5 +21,8 @@ document.getElementById("coupon-btn").addEventListener("click", () => {
   setBalance(getBalance() + 1000);
   addTransaction("add", "Bonus Coupon · s-1000", 1000);
   use = false;
-  alert(`Bonus added! $1000 credited. New balance: $${getBalance()}`);
+  alert(
+    `Bonus added! $1000.00 credited. New balance: $${getBalance().toFixed(2)}`,
+  );
+  empty("coupon-id");
 });

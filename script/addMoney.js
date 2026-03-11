@@ -3,7 +3,6 @@ document.getElementById("addMoney-btn").addEventListener("click", () => {
   const addMoneyPin = getInputValue("addMoney-pin");
   const addMoneyAmount = getInputValue("addMoney-amount");
 
-  
   hideAllErrors(["bank", "addMoney-number", "addMoney-amount", "addMoney-pin"]);
 
   if (getInputValue("bank") === "Select a Bank") {
@@ -26,5 +25,9 @@ document.getElementById("addMoney-btn").addEventListener("click", () => {
   const newBalance = getBalance() + Number(addMoneyAmount);
   setBalance(newBalance);
   addTransaction("add", "Add Money · " + getInputValue("bank"), addMoneyAmount);
-  alert(`$${addMoneyAmount} added successfully. New balance: $${newBalance}`);
+  alert(
+    `$${Number(addMoneyAmount).toFixed(2)} added successfully. New balance: $${newBalance.toFixed(2)}`,
+  );
+  empty("addMoney-pin");
+  empty("addMoney-amount");
 });

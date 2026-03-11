@@ -3,7 +3,6 @@ document.getElementById("pay-btn").addEventListener("click", () => {
   const payPin = getInputValue("pay-pin");
   const payAmount = getInputValue("pay-amount");
 
- 
   hideAllErrors(["pay-bank", "pay-number", "pay-amount", "pay-pin"]);
 
   if (getInputValue("pay-bank") === "Select a Bank") {
@@ -30,5 +29,9 @@ document.getElementById("pay-btn").addEventListener("click", () => {
   const newAmount = getBalance() - Number(payAmount);
   setBalance(newAmount);
   addTransaction("", "Pay Bill · " + getInputValue("pay-bank"), payAmount);
-  alert(`$${payAmount} bill paid successfully. New balance: $${newAmount}`);
+  alert(
+    `$${Number(payAmount).toFixed(2)} bill paid successfully. New balance: $${newAmount.toFixed(2)}`,
+  );
+  empty("pay-pin");
+  empty("pay-amount");
 });

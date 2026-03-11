@@ -59,7 +59,7 @@ function renderTransaction() {
 
           <!-- Right: amount with sign and color -->
           <span class="font-bold ${color}">
-            ${prefix}${card.amount.toLocaleString()} BDT
+            ${prefix}${Number(card.amount).toFixed(2)} BDT
           </span>
 
         </div>

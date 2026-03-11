@@ -3,7 +3,6 @@ document.getElementById("cashout-btn").addEventListener("click", function () {
   const cashoutPin = getInputValue("cashout-pin");
   const cashoutAmount = getInputValue("cashout-amount");
 
-
   hideAllErrors(["cashout-number", "cashout-amount", "cashout-pin"]);
 
   if (cashoutNumber !== accNo) {
@@ -26,5 +25,9 @@ document.getElementById("cashout-btn").addEventListener("click", function () {
   const newAmount = getBalance() - Number(cashoutAmount);
   setBalance(newAmount);
   addTransaction("", "Cash Out", cashoutAmount);
-  alert(`$${cashoutAmount} withdrawn successfully. New balance: $${newAmount}`);
+  alert(
+    `$${Number(cashoutAmount).toFixed(2)} withdrawn successfully. New balance: $${newAmount.toFixed(2)}`,
+  );
+  empty("cashout-pin");
+  empty("cashout-amount");
 });

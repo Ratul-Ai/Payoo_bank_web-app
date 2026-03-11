@@ -3,7 +3,6 @@ document.getElementById("transfer-btn").addEventListener("click", function () {
   const transferPin = getInputValue("transfer-pin");
   const transferAmount = getInputValue("transfer-amount");
 
-
   hideAllErrors(["transfer-number", "transfer-amount", "transfer-pin"]);
 
   if (transferNumber !== accNo) {
@@ -26,5 +25,9 @@ document.getElementById("transfer-btn").addEventListener("click", function () {
   const newAmount = getBalance() - Number(transferAmount);
   setBalance(newAmount);
   addTransaction("", "Transfer", transferAmount);
-  alert(`$${transferAmount} transferred successfully. New balance: $${newAmount}`);
+  alert(
+    `$${Number(transferAmount).toFixed(2)} transferred successfully. New balance: $${newAmount.toFixed(2)}`,
+  );
+  empty("transfer-pin");
+  empty("transfer-amount");
 });

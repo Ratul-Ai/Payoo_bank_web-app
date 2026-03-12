@@ -15,7 +15,7 @@ document.querySelectorAll(".only-digit").forEach((input) => {
   });
 });
 
-document.querySelectorAll(".amount-digit").forEach((input) => {
+document.querySelectorAll(".decimal-digit").forEach((input) => {
   input.addEventListener("input", function () {
     this.value = this.value
       .replace(/[^0-9.]/g, "")
